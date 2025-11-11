@@ -18,9 +18,13 @@ spec:
           ingress:
             enabled: true
             ingressClassName: traefik
-            hosts: [ "grafana.babeau.fr" ]
+            annotations:
+              cert-manager.io/cluster-issuer: "letsencrypt"
+            hosts:
+              - grafana.babeau.fr
             tls:
-              - hosts: [ "grafana.babeau.fr" ]
+              - hosts:
+                  - grafana.babeau.fr
                 secretName: grafana-tls
         prometheus:
           ingress:
