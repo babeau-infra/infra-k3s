@@ -12,6 +12,9 @@ spec:
     helm:
       releaseName: monitoring
       values: |
+        crds:
+          enabled: false
+
         grafana:
           adminUser: admin
           adminPassword: changeme
@@ -26,6 +29,7 @@ spec:
               - hosts:
                   - grafana.babeau.fr
                 secretName: grafana-tls
+
         prometheus:
           ingress:
             enabled: false
